@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+}
+
+body h1 {
+  font-family: 'Inter', sans-serif;
+
+  color: white;
+}
+
+/* yellow: #FFE002 */
+/* black: #232323 */
+/* white: #fff */
+
+body h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: white;
+}
+body p {
+  font-family: sans-serif;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+}
+
+input[type='radio']:after {
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+  cursor: pointer;
+  position: relative;
+  background-color: #232323;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+  cursor: pointer;
+  position: relative;
+  background-color: #ffe002;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}

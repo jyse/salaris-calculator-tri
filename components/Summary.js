@@ -1,5 +1,6 @@
 import React from 'react'
-import questionsData from '../questionsData'
+import pagesData from '../pagesData'
+
 function Summary({ selectedAnswers }) {
   const style = {
     wrapper: ``,

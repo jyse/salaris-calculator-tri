@@ -4,12 +4,17 @@ import pagesData from '../pagesData'
 import Summary from './Summary'
 import Question from './Question'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
+import Welcome from './Welcome'
+import Calculation from './Calculation'
 
 const style = {
   wrapper: ``,
   main: `flex `,
   leftSide: `w-[70vw] h-[100vh] relative`,
   rightSide: `w-[30vw] h-[100vh] bg-[#FFE002] relative`,
+  box: `flex-col mt-[0.4rem] mb-[2.5rem] absolute -top-[-220px] mx-[3.5rem] `,
+  text: `text-[#121212] font-bold text-4xl mb-[10px]`,
+  description: `text-[#121212] text-xl mb-[30px]`,
   submitButton: `mt-10 flex h-[80px] w-full justify-center items-center bg-[#232323] text-white rounded-lg `,
   textSubmitButton: ` text-white text-xl font-bold cursor-pointer`,
 }
@@ -20,7 +25,7 @@ function Page() {
 
   const handleNext = () => {
     let nextPage = currentPage + 1
-    nextPage < pagesData.length && setCurrentPage(nextPage)
+    setCurrentPage(nextPage)
   }
 
   const handlePrevious = () => {
@@ -28,24 +33,26 @@ function Page() {
     prevPage >= 0 && setCurrentPage(prevPage)
   }
 
-  const pickedAnswer = (answer) => {
-    setSelectedAnswers([
-      (selectedAnswers[currentPage] = { answerByUser: answer }),
-    ])
-    setSelectedAnswers([...selectedAnswers])
-  }
-
   return (
     <div className={style.main}>
-      {selectedAnswers.length < pagesData.length ? (
+      {currentPage <= pagesData.length && (
         <>
           <div className={style.leftSide}>
             <div className={style.imageLeft}>
-              <Image
-                src={pagesData[currentPage].image}
-                layout="fill"
-                objectFit="cover"
-              />
+              {pagesData[currentPage]?.type == 'welcome' && <Welcome />}
+              {pagesData[currentPage]?.type == 'question' && (
+                <Image
+                  src={pagesData[currentPage]?.image}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              )}
+              {pagesData[currentPage]?.type == 'calculation01' && (
+                <Calculation />
+              )}
+              {pagesData[currentPage]?.type == 'summary' && (
+                <Summary selectedAnswers={selectedAnswers} />
+              )}
             </div>
           </div>
           <div className={style.rightSide}>
@@ -59,20 +66,25 @@ function Page() {
               />
             ) : (
               <>
-                <h2>{pagesData[currentPage]?.text}</h2>
-                <div className={style.submitButton}>
-                  <button onClick={handleNext}>
-                    <div className={style.textSubmitButton}>
-                      Verder <ArrowRightAltIcon />
-                    </div>
-                  </button>
+                <div className={style.box}>
+                  <div className={style.text}>
+                    {pagesData[currentPage]?.text}
+                  </div>
+                  <div className={style.description}>
+                    {pagesData[currentPage]?.description}
+                  </div>
+                  <div className={style.submitButton}>
+                    <button onClick={handleNext}>
+                      <div className={style.textSubmitButton}>
+                        Verder <ArrowRightAltIcon />
+                      </div>
+                    </button>
+                  </div>
                 </div>
               </>
             )}
           </div>
         </>
-      ) : (
-        <Summary selectedAnswers={selectedAnswers} />
       )}
     </div>
   )

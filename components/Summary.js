@@ -6,6 +6,7 @@ function Summary({ selectedAnswers }) {
     wrapper: ``,
     main: `flex `,
     leftSide: `w-[70vw] h-[100vh] relative bg-[#121212]`,
+    summary: `bg-[purple]`,
     // rightSide: `w-[30vw] h-[100vh] bg-[#FFE002] relative`,
     // rightTop: `flex items-center mt-[0.8rem]`,
     // previousButton: `bg-[#121212]  h-[60px] w-[125px]  mx-[3.5rem] flex justify-center items-center  rounded-xl `,
@@ -21,6 +22,7 @@ function Summary({ selectedAnswers }) {
     // textSubmitButton: ` text-white text-xl font-bold cursor-pointer`,
     // summary: `bg-[#121212] h-[100vh] w-full`,
   }
+  console.log(selectedAnswers, 'what is in selectedAnsers?')
 
   return (
     <div className={style.main}>
@@ -30,8 +32,8 @@ function Summary({ selectedAnswers }) {
           {selectedAnswers.map((obj, index) => {
             return (
               <h1>
-                {questionsData[index].question}
-                {obj.answerByUser}
+                {pagesData[index].question}
+                {obj ? obj.answerByUser : 'Geen antwoord'}
               </h1>
             )
           })}

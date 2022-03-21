@@ -15,7 +15,7 @@ const Header = () => {
       <div className={style.logoContainer}>
         <Image src="/assets/logo.svg" height={110} width={110} />
       </div>
-      <div className={style.logoText}> Salaris Calculator</div>
+      <div className={style.logoText}> Salariscalculator</div>
       <div className={style.headerItems}>
         <div className={style.headerItem}> Over ons </div>
         <div className={style.headerItem}> Guide </div>

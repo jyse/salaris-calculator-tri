@@ -36,6 +36,10 @@ let pagesData = [
   },
   {
     id: 3,
+    type: 'calculation01',
+  },
+  {
+    id: 4,
     type: 'question',
     image: '/assets/party.jpg',
     question: 'Wil je een lease-auto?',
@@ -49,7 +53,7 @@ let pagesData = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     type: 'question',
     image: '/assets/surf.jpeg',
     question:
@@ -59,7 +63,7 @@ let pagesData = [
     answerOptions: [{ answer: '€100 p/m' }, { answer: '€150 p/m' }],
   },
   {
-    id: 5,
+    id: 6,
     type: 'question',
     image: '/assets/letters.jpg',
     question:
@@ -74,7 +78,7 @@ let pagesData = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     type: 'question',
     image: '/assets/events.jpeg',
     question:
@@ -89,7 +93,7 @@ let pagesData = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     type: 'question',
     image: '/assets/jacket.png',
     question:
@@ -98,7 +102,7 @@ let pagesData = [
     answerOptions: [{ answer: '€100 p/m' }, { answer: '€150 p/m' }],
   },
   {
-    id: 8,
+    id: 9,
     type: 'question',
     image: '/assets/girls.png',
     question:
@@ -110,6 +114,12 @@ let pagesData = [
       { answer: '€150 p/m' },
       { answer: 'Weet ik nog niet' },
     ],
+  },
+  {
+    id: 10,
+    type: 'summary',
+    text: 'Samenvatting',
+    image: '/assets/jacket.png',
   },
 ]
 
